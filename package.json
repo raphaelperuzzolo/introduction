@@ -8,8 +8,9 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --mode development --hot --host 0.0.0.0 --port 80",
+    "build": "webpack-dev-server --mode production --host 0.0.0.0 --port 80",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d public"
   },
   "dependencies": {
     "css-loader": "^4.3.0",
