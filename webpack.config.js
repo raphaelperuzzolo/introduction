@@ -12,7 +12,7 @@ const isArray = require('lodash/isArray')
 
 const host = process.env.HOST || '0.0.0.0'
 const port = process.env.PORT || 80
-const sourceDir = process.env.SOURCE || 'src'
+const sourceDir = process.env.SOURCE || 'src/index.jsx'
 const publicPath = `/${process.env.PUBLIC_PATH || 'public'}/`.replace('//', '/')
 const sourcePath = path.join(process.cwd(), sourceDir)
 const outputPath = path.join(process.cwd(), 'dist')
@@ -51,14 +51,7 @@ const wpConfig = {
       extensions: ['.js', '.jsx', '.json'],
       modules: [].concat(sourceDir, ['node_modules']),
     },
-    entry: {
-      app: [sourcePath],
-    },
-    output: {
-      filename: '[name].js',
-      path: outputPath,
-      publicPath,
-    },
+    entry: sourcePath,
   },
   development: {
     mode: 'development',
@@ -69,6 +62,11 @@ const wpConfig = {
     ],
     entry: {
       app: ['webpack/hot/only-dev-server'],
+    },
+    output: {
+      filename: 'bundle.js',
+      path: publicPath,
+      publicPath,
     },
     devtool: 'cheap-module-source-map',
     devServer: {
@@ -92,7 +90,12 @@ const wpConfig = {
       new WebpackMd5Hash(),
     ],
     output: {
-      filename: '[name].[chunkhash].js',
+      filename: 'bundle.js',
+      path: outputPath,
+      publicPath: 'public',
+    },
+    devServer: {
+      contentBase: "build",
     },
     optimization: {
       minimizer: [
