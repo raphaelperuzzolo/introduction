@@ -2,15 +2,16 @@
   "name": "introduction-raphael-peruzzolo",
   "description": "Description soon",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "repository": "https://github.com/raphaelperuzzolo/introduction.git",
   "author": "Raphael Peruzzolo <raphaelperuzzolo@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development --host 0.0.0.0 --port 80"
+    "start": "webpack-dev-server --mode development --hot --host 0.0.0.0 --port 80",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "babel-loader": "^8.1.0",
     "css-loader": "^4.3.0",
     "file-loader": "^6.0.0",
     "history": "^5.0.0",
@@ -21,20 +22,23 @@
     "react-router-dom": "^6.0.0-beta.0",
     "require-context.macro": "^1.2.2",
     "style-loader": "^1.2.1",
-    "styled-components": "^5.2.0",
-    "subscriptions-transport-ws": "^0.9.18",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
+    "babel-loader": "^8.1.0",
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.9.4",
+    "@babel/plugin-transform-runtime": "^7.9.0",
     "babel-plugin-macros": "^2.8.0",
     "eslint": "^7.11.0",
     "eslint-plugin-react": "^7.21.4",
-    "webpack-dev-server": "^3.10.3"
+    "gh-pages": "^3.1.0",
+    "html-webpack-plugin": "^4.5.0",
+    "subscriptions-transport-ws": "^0.9.18",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.3"
   }
 }
