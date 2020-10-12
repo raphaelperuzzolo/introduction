@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.jsx'),
@@ -16,6 +17,11 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json'],
     modules: [].concat('src', ['node_modules']),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve('public/index.html'),
+    }),
+  ],
   module: {
     rules: [
       {
