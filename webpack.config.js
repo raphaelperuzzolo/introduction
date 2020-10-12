@@ -31,6 +31,13 @@ const wpConfig = {
         { test: /\.jsx?$/, exclude: /node_modules/, use: 'happypack/loader' },
         { test: /\.(png|jpe?g|svg|woff2?|ttf|eot)$/, loader: 'url-loader?limit=8000' },
         { test: /\.svg$/i, use: 'raw-loader' },
+        { test: /.*\.(gif|png|jpe?g)$/i, exclude: /node_modules/, use: [{ loader: 'file-loader' }] },
+        {
+          test: /\.css$/, exclude: /node_modules/, use: [
+            { loader: 'style-loader' },
+            { loader: 'css-loader' },
+          ],
+        },
       ],
     },
     plugins: [
