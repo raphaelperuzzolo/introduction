@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "main": "src/index.jsx",
   "repository": "https://github.com/raphaelperuzzolo/introduction.git",
+  "homepage": "https://raphaelperuzzolo.github.io/introduction/",
   "author": "Raphael Peruzzolo <raphaelperuzzolo@gmail.com>",
   "license": "MIT",
   "scripts": {
